@@ -39,7 +39,7 @@ if avgAreaIncome and avgHouseAge and avgNumRooms and areaPopulation:
     if res <= 0:
         st.error("Failed to estimate price")
     else:
-        st.sucess(f"Estimated Housing price: {res)} $ (USD)")
+        st.sucess(f"Estimated Housing price: {res} $ (USD)")
 
 
 
