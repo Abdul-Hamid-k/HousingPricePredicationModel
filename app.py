@@ -21,8 +21,8 @@ st.markdown("""
 st.write("All this below question are regarding the society that you want housing around.")
 
 avgAreaIncome  = st.number_input('Average Area Income')
-avgHouseAge = st.number_input('Average House Age')
-avgNumRooms = st.number_input('Average Number of Rooms')
+avgHouseAge = st.number_input('Average House Age', min=2, max=10)
+avgNumRooms = st.number_input('Average Number of Rooms', min=3, max=11)
 areaPopulation = st.number_input('Area Population')
 
 st.markdown("""
@@ -35,7 +35,11 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 if avgAreaIncome and avgHouseAge and avgNumRooms and areaPopulation:
-  st.write(f"Estimated Housing price: {USA_HousingPricePredicationModel(avgAreaIncome, avgHouseAge, avgNumRooms, areaPopulation)} $ (USD)")
+    res = USA_HousingPricePredicationModel(avgAreaIncome, avgHouseAge, avgNumRooms, areaPopulation)
+    if res <= 0:
+        st.error("Failed to estimate price")
+    else:
+        st.sucess(f"Estimated Housing price: {res)} $ (USD)")
 
 
 
