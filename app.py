@@ -20,10 +20,10 @@ st.markdown("""
 
 st.write("All this below question are regarding the society that you want housing around.")
 
-avgAreaIncome  = st.number_input('Average Area Income')
-avgHouseAge = st.number_input('Average House Age', min=2, max=10)
-avgNumRooms = st.number_input('Average Number of Rooms', min=3, max=11)
-areaPopulation = st.number_input('Area Population')
+avgAreaIncome  = st.number_input('Average Area Income', step=1)
+avgHouseAge = st.number_input('Average House Age', min_value=2, max_value=10, step=1)
+avgNumRooms = st.number_input('Average Number of Rooms', min_value=3, max_value=11, step=1)
+areaPopulation = st.number_input('Area Population', step=10)
 
 st.markdown("""
     <style>
